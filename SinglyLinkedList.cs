@@ -66,16 +66,41 @@ namespace DataStructures
             return Tail.Data;
         }
 
+        public T Get(int index)
+        {
+            if (index < 0 || index >= size ) throw new Exception("Out of range!");
+            
+            Node<T> trav = Head;
+            T data = default(T);
+            
+            for (int i = 0; i < size; trav = trav.Next, i++ )
+            {
+                if(i == index) { data = trav.Data; break;}
+            
+            }
+            
+            return data;
+        }
+        
+        public void Set( int index, T elem)
+        {
+            if (index < 0 || index >= size ) throw new Exception("Out of range!");
 
+            Node<T> trav = Head;
+            
+            for (int i = 0; i < size; trav = trav.Next, i++ )
+            {
+                if(i == index) { trav.Data = elem; break;}
+            
+            }
+        }
         /*
-            get
-            set
-            contains
             clear
             remove
             removefirst
             removelast
             removeat
+            contains
             indexof
             tostring
         */
