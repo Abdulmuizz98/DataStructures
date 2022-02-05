@@ -8,23 +8,68 @@ namespace DataStructures
         Node<T> Head = default(Node<T>);
         Node<T> Tail = default(Node<T>);
         int size = 0;
-        public class Node<T>
+        class Node<T>
         {
-            public Node(Node<T> next, Node<T> prev, T data)
+            public Node(Node<T> next, T data)
             {
                 this.Data = data;
                 this.Next = next;
-                this.Prev = prev;
             }
 
             public override string ToString()
             {
                 return Data.ToString();
             }
-            T Data;
-            Node<T> Next;
-            Node<T> Prev;
+            public T Data;
+            public Node<T> Next;
         }
 
+        public int Size
+        {
+            get {
+                return size;
+            }
+        }         
+
+        public bool IsEmpty() {return size == 0; }
+        
+        public void Add(T elem)
+        {
+            AddLast(elem);
+        }
+        public void AddLast(T elem)
+        {
+            if(IsEmpty()) Head = Tail = new Node<T>(default(Node<T>), elem);
+            else{   
+                Tail.Next = new Node<T>(default(Node<T>), elem);
+                Tail = Tail.Next;
+            }
+            size++;
+        }
+        public void AddFirst(T elem)
+        {
+            if(IsEmpty()) Head = Tail = new Node<T>(default(Node<T>), elem);
+            else{
+                Node<T> newHead = new Node<T>(Head, elem );
+                Head = newHead;
+            }
+            size++;
+        }
+
+
+        /*
+            get
+            set
+            contains
+            clear
+            peekfirst
+            peeklast
+            remove
+            removefirst
+            removelast
+            removeat
+            indexof
+            tostring
+        */
     }
 }
