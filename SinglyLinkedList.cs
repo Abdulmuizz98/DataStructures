@@ -55,6 +55,16 @@ namespace DataStructures
             }
             size++;
         }
+        public T PeekFirst()
+        {
+            if (IsEmpty()) throw new Exception("Empty List!");
+            return Head.Data;
+        }
+        public T PeekLast()
+        {
+            if (IsEmpty()) throw new Exception("Empty List!");
+            return Tail.Data;
+        }
 
 
         /*
@@ -62,8 +72,6 @@ namespace DataStructures
             set
             contains
             clear
-            peekfirst
-            peeklast
             remove
             removefirst
             removelast
